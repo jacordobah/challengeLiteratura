@@ -8,7 +8,7 @@ public enum Idioma {
     fr("fr"),
     pt("pt"),
     de("de"),
-    otro("otro");
+    indefinido("indefinido");
 
     private String categoria;
 
@@ -24,7 +24,16 @@ public enum Idioma {
                }
            }
        }
-       return otro;
+       return indefinido;
    }
+
+    public static Idioma buscaCoincidencia(String codigo) {
+            for (Idioma idioma : Idioma.values()) {
+                if (idioma.toString().equalsIgnoreCase(codigo)) {
+                    return idioma; // Retorna el primer valor que coincide.
+                }
+            }
+        return null;
+    }
 
 }
